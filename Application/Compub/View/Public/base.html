@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <block name="header">
+                <include file="./Application/Common/View/Public/header.html" />
+            </block>
+            <block name ="basesrc">
+                <!-- Bootstrap core CSS -->
+                <link href="__PUBLIC__/css/bootstrap.css" rel="stylesheet">
+                <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/style.css">
+                <!-- Add custom CSS here -->
+                <link href="__PUBLIC__/css/sb-admin.css" rel="stylesheet">
+                <link rel="stylesheet" href="__PUBLIC__/font-awesome/css/font-awesome.min.css">
+
+                <script type="text/javascript" src="__PUBLIC__/js/jquery-1.10.2.js"></script>
+                <script type="text/javascript">
+                    var sysZoneAjaxUrl = '__APP__/Compub/Common/zone';
+                </script>
+                <script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+
+            </block>
+            <block name="extendheader">
+            </block>
+        </head>
+        <body>
+            <div id="wrapper">
+                <!-- Sidebar -->
+                <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                    <block name="top"><include file="./Application/Common/View/Public/top.html" /></block>
+                    <block name="menu"><include file="./Application/Common/View/Public/menu.html" /></block>
+                </nav>
+                <div id="page-wrapper">
+                    <block name="main"></block>
+                </div><!-- /#page-wrapper -->
+                <block name="footer"><include file="./Application/Common/View/Public/footer.html"/></block>
+                <block name="extendfooter">
+                </block>
+            </div><!-- /#wrapper -->
+            <block name ="footersrc">
+                <!-- JavaScript -->
+                <script type="text/javascript" src="__PUBLIC__/js/bootstrap.js"></script>
+                <script type="text/javascript">
+                    var sysLoginoutUrl = '__APP__/Admin/Login/signout';
+                    var sysLoginIndexUrl = '__APP__/Admin/Login/index';
+                </script>
+                <script type="text/javascript" src="__PUBLIC__/js/Admin/menu.js"></script>
+            </block>
+            <block name="extendbottom">
+            </block>
+        </body>
+    </html>
