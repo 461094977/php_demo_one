@@ -1,0 +1,37 @@
+<div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close"
+               data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" id="myModalLabel">
+                    <if condition="$params['RoleId']">
+                        编辑角色
+                    <else />
+                        添加角色
+                    </if>
+              </h4>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="modal_div">
+                  <form role="form" class="form-inline">
+                    <div class="form-group col-lg-12">
+                      <label class="col-lg-3">角色名称：</label>
+                      <input class="form-control" name="name">
+                    </div>
+                    <div class="form-group col-lg-12">
+                      <label class="col-lg-3">详述：</label>
+                      <textarea class="form-control"  class="form-control" name="remark"></textarea>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <input type="hidden" name='roleId' value="{$params['roleId']}">
+              <button type="button" class="btn btn-default"
+               data-dismiss="modal">关闭</button>
+              <button type="button" class="btn btn-primary editRoleAjax">提交</button>
+            </div>
+          </div>
+</div>

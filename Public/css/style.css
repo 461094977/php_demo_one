@@ -1,0 +1,109 @@
+.container{width: 450px;}
+.container h2{margin-bottom: 20px;text-align: center;}
+.container form .form-control{display: inline-block;width: 60%}
+.container form .form-control.vode{width: 35%}
+.container form label{width: 20%;text-align: right;margin-bottom: 20px}
+.btn-primary.btn-block{width: 60%;margin-left:21%;}
+/*表单控件*/
+.row .form-inline .form-group .form-control{width: 45%}
+table td a{padding-right: 5px}
+.row{padding-top:10px;}
+.modal-body .form-group{margin-bottom: 20px}
+.modal-body .form-group label{text-align: right;}
+.form-group .upload{display: inline-block;width: 28%}
+
+/*table全局默认样式*/
+body table td,body table th{text-align: center;white-space: nowrap;}
+body table td>a{cursor:pointer;}
+/**table下 td可编辑*/
+.edit-table tr td input{ border:0;height: 100%;padding: 0 1%;text-align: center;width: 98%; background-color:transparent;}
+.table-center thead tr th,
+.table-center tbody tr td{
+    vertical-align: middle;
+}.div-row{
+    margin-bottom: 5px;
+}
+
+/** 折叠 控件*/
+.ling-none{margin: 0; padding: 0;}
+.ling-btn{float: right;margin-top: -5px;width:56px;}
+.ling-collapse-one{margin-top: 0;margin-left: 5%;margin-bottom: 0;}
+.ling-collapse-one li{background-color: #fafafa}
+.ling-collapse-two{margin-top: 0;margin-left: 5%;margin-bottom: 0;}
+.ling-collapse-two li{background-color: #efefef}
+
+/** 有关上传图片的 css 样式 */
+.a-upload {
+    padding: 6px 0px;
+    height: 34px;
+    line-height: 20px;
+    position: relative;
+    cursor: pointer;
+    color: #888;
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1
+}
+.a-upload  input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer
+}
+.a-upload:hover {
+    color: #444;
+    background: #eee;
+    border-color: #ccc;
+    text-decoration: none
+}
+/** 拖拽 图片 样式调整 */
+.ling-ul {width:100%; position:relative; margin:10px auto;}
+.ling-ul li {width:200px; height:150px; float:left; list-style:none; margin:10px;position: relative;}
+.ling-ul li:hover{ border-color: #9a9fa4; box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.85);}
+.ling-ul .active{ border:1px dashed red;}
+.ling-del{display: inline-block;position: absolute;top: -10px;right: -15px;width: 40px;height: 20px;line-height: 20px;font-style: normal;background: #ff3555;text-align: center;}
+/* 双日历控件 */
+.ling-calendar-type-1{}
+.ling-calendar-type-1 i{position: absolute;left: 142px;z-index: 3;top: auto;bottom: 11px;}
+.ling-calendar-type-1 input{padding-left: 40px}
+.ling-calendar-type-2{}
+.ling-calendar-type-2 i{position: absolute;left: 29px;z-index: 3;top: auto;bottom: 11px;}
+.ling-calendar-type-2 input{padding-left: 40px}
+
+.ling-table tr td:first-child{text-align: right}
+.ling-table tr td:first-child span{color: red;margin-left: 4px}
+
+/* 订单详情标签样式 */
+.btn-bonded { background-color: #fd6601; color:#fff; border:1px solid transparent;border-radius:4px}
+.btn-leader { background-color: #009801; color:#fff; border:1px solid transparent;border-radius:4px}
+.btn-group-type { background-color: #fd6601; color:#fff; border:1px solid transparent;border-radius:4px}
+.btn-friend { background-color: #cb9801; color:#fff; border:1px solid transparent;border-radius:4px}
+/* 控件垂直居中 */
+.vertical-container{
+    height: 60px;
+    padding: 15px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    background-color: #f1f1f1;
+}
+.label-vertical-center{
+    background-color: #f1f1f1;
+    width:150px;
+    height: 30px;
+    line-height: 30px;
+}
+.span-vertical-center{
+    height: 30px;
+    line-height: 30px;
+}

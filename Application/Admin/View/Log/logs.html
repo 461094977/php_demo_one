@@ -1,0 +1,91 @@
+<extend name="./Application/Common/View/Public/base.html"/>
+<block name="main">
+         <div class="row">
+          <form action="{:U('logs');}" method="get" id="queryForm">
+            <div class="col-lg-12">
+              <div role="form" class="form-inline">
+                <div class="form-group col-lg-4">
+                    <label>操作编号：</label>
+                    <input type="text" class="form-control" name="id" value="{$params['id']}">
+                </div>
+                <div class="form-group col-lg-4" style="margin-bottom:5px;">
+                    <label>修改者ID：</label>
+                    <input type="text" class="form-control" name="userId" value="{$params['userId']}">
+                  </div>
+                <div class="form-group col-lg-4">
+                    <label>修改者姓名：</label>
+                    <input type="text" class="form-control" name="userName" value="{$params['userName']}">
+                </div>
+              </div>
+            </div>
+
+             <div class="col-lg-12" style="margin-bottom:5px;">
+              <div role="form" class="form-inline">
+                  <div class="form-group col-lg-4">
+                      <label>创建时间：</label>
+                    <input readonly  type="text" class="form-control" name="createTime" value="{$params['createTime']}" id="createTime">
+                  </div>
+                  <div class="form-group col-lg-offset-4 col-lg-4">
+                    <input type="hidden" name="p" value="{$params['p']}">
+                    <button type="submit" class="btn btn-default">查询</button>
+                    <button type="button" class="btn btn-default" onclick="formReset(this)">清空</button>
+                  </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover table-striped tablesorter">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>修改者ID</th>
+                    <th>修改者姓名</th>
+                    <th>操作时间</th>
+                    <th>操作方法</th>
+                    <th>操作对象</th>
+                    <th>来源ip</th>
+                    <th>备注</th>
+                    <!-- <th>操作</th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                    <foreach name="list" item="vo">
+                        <tr>
+                          <td>{:str_pad($vo['operation_id'],8,'0',STR_PAD_LEFT);}</td>
+                          <td>{$vo.operation_user_id}</td>
+                          <td>{$vo.operation_user}</td>
+                          <td>{$vo.operation_time}</td>
+                          <td>{$vo.operation_action}</td>
+                          <td>{$vo.operation_object}</td>
+                          <td>{$vo.operation_ip}</td>
+                          <td>{$vo.operation_remark}</td>
+                          <!-- <td>
+                            <a data-info="{$vo.operation_id}" class="deleteLog">删除</a>
+                          </td> -->
+                        </tr>
+                    </foreach>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        {$page}
+
+</block>
+
+<block name="extendbottom">
+    <script>
+      var deleteUrl = '__MODULE__/Log/delete';
+    </script>
+    <!-- date time picker  -->
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap-datetimepicker.css">
+    <script type="text/javascript" src="__PUBLIC__/js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/Admin/Log/logs.js"></script>
+</block>

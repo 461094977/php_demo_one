@@ -1,0 +1,104 @@
+<extend name="./Application/Common/View/Public/base.html"/>
+<block name="main">
+        <div class="row">
+          <form action="{:U('users');}" method="get" id="queryForm">
+
+            <div class="col-lg-12" style="margin-bottom:5px;">
+              <div role="form" class="form-inline">
+                  <div class="form-group col-lg-3">
+                    <label>帐号姓名：</label>
+                    <input type="text" class="form-control" name="name" value="{$params['name']}">
+                  </div>
+                  <div class="form-group col-lg-3">
+                    <label>用户姓名：</label>
+                    <input type="text" class="form-control" name="fullname" value="{$params['fullname']}">
+                  </div>
+                  <div class="form-group col-lg-3">
+                    <label>ID：</label>
+                    <input type="text" class="form-control" placeholder="" name="userId" value="{$params['userId']}">
+                  </div>
+                  <div class="form-group col-lg-3">
+                    <label>角色：</label>
+                    <select class="form-control" name="roleId" data-info="{$params['roleId']}">
+                      <option value=""></option>
+                    </select>
+                  </div>
+              </div>
+            </div>
+
+             <div class="col-lg-12" style="margin-bottom:5px;">
+                <div role="form" class="form-inline">
+                  <div class="form-group col-lg-3">
+                     <input type="hidden" name="p" value="{$params['p']}">
+                      <button type="button" class="btn btn-default addUserHtml">新增</button>
+                      <!-- <button type="button" class="btn btn-default" onclick="excelForm($('#queryForm'),excelUrl)">导出</button> -->
+                      <button type="submit" class="btn btn-default">查询</button>
+                      <button type="button" class="btn btn-default" onclick="formReset(this)">清空</button>
+                  </div>
+                </div>
+            </div>
+
+          </form>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover table-striped tablesorter">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>姓名</th>
+                    <th>用户名</th>
+                    <th>联系方式</th>
+                    <th>角色</th>
+                    <th>状态</th>
+                    <!-- <th>更新时间</th> -->
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <foreach name="list" item="vo">
+                        <tr>
+                          <td>{:str_pad($vo['id'],6,'0',STR_PAD_LEFT);}</td>
+                          <td>{$vo.fullname}</td>
+                          <td>{$vo.name}</td>
+                          <td>{$vo.mobile}</td>
+                          <td>{$vo.role_name}</td>
+                          <td>
+                            <if condition="$vo['status']==1">
+                              正常
+                            <else />
+                              停用
+                            </if>
+                          </td>
+                          <!-- <td>{$vo.create_date}</td> -->
+                          <td>
+                            <a data-info="{$vo.id}" class="editUserHtml">编辑</a>
+                            <a data-info="{$vo.id}" class="deleteUser">删除</a>
+                          </td>
+                        </tr>
+                    </foreach>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        {$page}
+        <!-- 模态框（Modal） -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+        aria-labelledby="myModalLabel" aria-hidden="true">
+        </div>
+</block>
+
+<block name="extendbottom">
+    <script>
+      var editUrl = '__MODULE__/User/edit';
+      var addUrl = '__MODULE__/User/add';
+      var deleteUrl = '__MODULE__/User/delete';
+      var roleUrl = '__MODULE__/Role/roleajax';
+      var excelUrl = '__CONTROLLER__/excel';
+    </script>
+    <script type="text/javascript" src="__PUBLIC__/js/Admin/User/users.js"></script>
+</block>

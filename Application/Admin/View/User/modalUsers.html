@@ -1,0 +1,59 @@
+<!-- Sales Modal -->
+<div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content ">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="mySalesInfoModalLabel">销售经理信息</h4>
+        </div>
+        <div class="modal-body">
+            <form class="form-horizontal" action="{:U('Admin/User/modal_users');}">
+                <!-- <div class="row">
+                    <div class="col-md-5">
+                        <label class="col-md-5 control-label">省份:</label>
+                        <div class="col-md-7" style="padding: 0;">
+                            <select class="form-control" name="provinceId">
+                                <option value="">全部</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-5">
+                        <label class="col-md-5 control-label">城市:</label>
+                        <div class="col-md-7" style="padding: 0;">
+                            <select class="form-control" name="cityId">
+                                <option value="">全部</option>
+                            </select>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="row">
+                    <div class="col-md-5" style="padding: 0;">
+                        <label for="contract_no" class="col-md-5 control-label">姓名:</label>
+                        <div class="col-md-7" style="padding: 0">
+                            <input  type="text" class="form-control"  placeholder="" name="fullname">
+                        </div>
+                    </div>
+                    <div class="col-md-5" style="padding: 0;">
+                        <label for="contract_no" class="col-md-5 control-label">用户名:</label>
+                        <div class="col-md-7" style="padding: 0">
+                            <input  type="text" class="form-control" placeholder="" name="name">
+                        </div>
+                    </div>
+                </div>
+                <hr style="padding: 5px; margin: 0; border-top-color: white" >
+                <div class="row" style="padding-bottom: 0px; margin: 0">
+                    <div class="col-md-4 col-md-offset-8">
+                        <input type="hidden" name="is_ajax" value="true">
+                        <input type="button" class="btn btn-default col-md-5"  id="queryButton" value="查询">
+                        <input type="button" class="btn btn-default col-md-5 col-md-offset-2"  value="清空" onclick="formReset(this)">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="modal-body" style="padding-top: 0px; overflow: auto;max-height: 430px;" id="adOrderAddUsersAjax">
+            {$table}
+        </div>
+
+    </div>
+</div>

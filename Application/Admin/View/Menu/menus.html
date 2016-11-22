@@ -1,0 +1,94 @@
+<extend name="./Application/Common/View/Public/base.html"/>
+<block name="main">
+         <div class="row">
+          <div class="col-lg-12">
+            <form role="form" class="form-inline" action="{:U('menus');}" methode="GET" id="queryForm">
+              <div class="form-group col-lg-3">
+                <button type="button" class="btn btn-default addMenuHtml">添加菜单</button>
+              </div>
+              <div class="form-group col-lg-3">
+              </div>
+              <div class="form-group col-lg-3">
+              </div>
+              <div class="form-group col-lg-3">
+              </div>
+              <input type="hidden" name="p" value="{$params['p']}">
+            </form>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover table-striped tablesorter">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>1级菜单名</th>
+                    <th>2级菜单名</th>
+                    <th>菜单路径</th>
+                    <th>节点ID</th>
+                    <th>菜单等级</th>
+                    <th>是否显示</th>
+                    <th>菜单排序</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <foreach name="list" item="vo">
+                        <tr>
+                          <td>{$vo.id}</td>
+                          <td>
+                              <if condition="$vo['level']==1">
+                                    {$vo.title}
+                              </if>
+                          </td>
+                          <td>
+                              <if condition="$vo['level']==2">
+                                    {$vo.title}
+                              </if>
+                          </td>
+                          <td>{$vo.path}</td>
+                           <td>{$vo.node_id}</td>
+                          <td>
+                              <if condition="$vo['level']==1">
+                                    1级菜单
+                              </if>
+                              <if condition="$vo['level']==2">
+                                    2级菜单
+                              </if>
+                          </td>
+                          <td>
+                              <if condition="$vo['is_show']">
+                                      是
+                              <else/>
+                                      否
+                              </if>
+                          </td>
+                          <td>{$vo.sort}</td>
+                          <td>
+                            <a data-info="{$vo.id}" class="editMenuHtml">编辑</a>
+                            <a data-info="{$vo.id}" class="deleteMenu">删除</a>
+                          </td>
+                        </tr>
+                    </foreach>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- 模态框（Modal） -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+           aria-labelledby="myModalLabel" aria-hidden="true">
+        </div>
+</block>
+
+<block name="extendbottom">
+    <script>
+      var addUrl = '__MODULE__/Menu/add';
+      var editUrl = '__MODULE__/Menu/edit';
+      var deleteUrl = '__MODULE__/Menu/delete';
+    </script>
+    <script type="text/javascript" src="__PUBLIC__/js/Admin/Menu/menus.js"></script>
+</block>

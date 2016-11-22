@@ -1,7 +1,7 @@
 <?php
 
 /**加载常量文件**/
-require_once APP_PATH.'Common/Common/constant.php';
+//require_once APP_PATH.'Common/Common/constant.php';
 
 /**
  * 二维数组以某列最为索引键值

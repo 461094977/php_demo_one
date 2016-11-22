@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/dashboard.css">
+    <script type="text/javascript" src="__PUBLIC__/js/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/style.css">
+    <script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+</head>
+<body>
+    <div class="container">
+      <form class="form-signin">
+        <h2 class="form-signin-heading login">安居宝拼单管理系统</h2>
+        <label for="inputEmail"><h4>用户名：</h4></label>
+        <input type="text" id="name" name="nameLogin" class="form-control" placeholder="请输入用户名" autofocus>
+        <label for="inputPassword"><h4>密码：</h4></label>
+        <input type="password" id="inputPassword" name="passwordLogin" class="form-control" placeholder="请输入密码">
+        <label><span><h4>验证码：</h4></span></label>
+        <input class="form-control vode" placeholder="请输入验证码" name="vcode" type="text" value="">
+        <img class="vcodeSrc" src="__APP__/Compub/Vcode/captcha">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+      </form>
+    </div>
+    <script>
+    var vcodeUrl = '__APP__/Compub/Vcode/captcha';
+    var loginUrl = "__MODULE__/Login/signin";
+    var welcomeUrl = "__MODULE__/Login/welcome";
+    </script>
+    <script type="text/javascript" src="__PUBLIC__/js/Admin/Login/index.js"></script>
+</body>
+</html>

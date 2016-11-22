@@ -6,10 +6,10 @@ use Common\Logic\User;
 use Common\Util\Operation;
 class BaseController extends Controller{
 
-    //常量
+    // 自定义 常量
     private function initDefine(){
         //广告系统url前缀部分
-        define('H5_GBUY_URL',C('H5_GBUY_IP').'/groupBuyingApi/');
+//        define('H5_GBUY_URL',C('H5_GBUY_IP').'/groupBuyingApi/');
 
         //admin帐号user_id
         define('ADMIN_USER_ID',1);
@@ -27,7 +27,7 @@ class BaseController extends Controller{
         }
     }
 
-    //模板变量
+    // 自定义  模板变量
     private function initTmplStr(){
         C('TMPL_PARSE_STRING.__CSS__',__ROOT__ . '/Public/css');
         C('TMPL_PARSE_STRING.__CSSMCA__',__ROOT__ . '/Public/css/' . MODULE_NAME.'/'.CONTROLLER_NAME.'_'.ACTION_NAME.'.css');
