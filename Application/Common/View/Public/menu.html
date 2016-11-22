@@ -1,0 +1,56 @@
+<!-- Collect the nav links, forms, and other content for toggling -->
+
+<div class="collapse navbar-collapse navbar-ex1-collapse">
+  <ul class="nav navbar-nav side-nav">
+    <volist name="leftMenuList" id="vo">
+      <li class="dropdown <if condition="$vo['id']==$selectMenu1Id"> open <else/> nopen</if>"  <if condition="$i eq count($leftMenuList)">style="padding-bottom:40px;"</if>>
+        <a href="#" class="dropdown-toggle">
+          <i class="fa fa-caret-square-o-down"></i>{$vo.title}
+          <b class="caret"></b>
+        </a>
+          <ul class="dropdown-menu">
+            <foreach name="vo['child']" item="child">
+              <li class="<if condition="$child['id']==$selectMenu2Id">active</if>">
+                  <a href="#" data-info="__APP__{$child.path}?selectMenu1Id={$vo.id}&selectMenu2Id={$child.id}">{$child.title}</a>
+              </li>
+             </foreach>
+          </ul>
+      </li>
+    </volist>
+    <!-- <li class="dropdown  open">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <i class="fa fa-caret-square-o-down"></i> 二级菜单
+          <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <li>
+              <a href="#">Dropdown Item</a>
+          </li>
+          <li class="active">
+              <a href="#">Another Item</a>
+          </li>
+          <li>
+            <a href="#">Third Item</a>
+          </li>
+          <li>
+            <a href="#">Last Item</a>
+          </li>
+        </ul>
+      </li> -->
+  </ul>
+
+  <ul class="nav navbar-nav navbar-right navbar-user">
+    <li class="dropdown messages-dropdown">
+      <p class="navbar-text pull-right">
+            <span class="header_info">
+                {$topUserInfo['userName']}，欢迎登录，您的等级:{$topUserInfo['roleName']}
+                <span> <i class="icon-user icon-white"></i>
+                    <a class="pointer"><!-- 个人信息 --></a>
+                </span>
+                <a href="#" class="navbar-link sysLoginout">退出</a>
+            </span>
+        </p>
+    </li>
+  </ul>
+
+</div><!-- /.navbar-collapse -->
