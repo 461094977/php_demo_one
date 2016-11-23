@@ -28,10 +28,10 @@ class LoginController extends  BaseController{
     public function signin(){
         $params = I();
 
-        //校验码校验
-        if(!Vcode::check($params['vcode'])){
-            $this->ajaxReturn(info('1','验证码错误'));
-        }
+//        //校验码校验
+//        if(!Vcode::check($params['vcode'])){
+//            $this->ajaxReturn(info('1','验证码错误'));
+//        }
 
         //用户密码校验
         $info= $this->userModel->getRow($params);
