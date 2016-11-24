@@ -16,5 +16,5 @@ return array(
     'DB_PWD'                =>  'ling',          // 密码
 
     // 加载扩展配置文件
-    'LOAD_EXT_CONFIG' => 'common_config',
+    'LOAD_EXT_CONFIG' => 'common_config,menus_config,nodes_config',
 );
