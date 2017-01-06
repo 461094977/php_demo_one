@@ -35,7 +35,7 @@ class MenuController extends  BaseController{
             if($level==2){
                 $str_arr = explode('/',$v);
                 $pop = array_pop($str_arr);
-                array_push($str_arr,strtolower($pop));
+                array_push($str_arr,$pop);
                 $v_v  = implode('/',$str_arr);
 
                 $params['title'] = $k;

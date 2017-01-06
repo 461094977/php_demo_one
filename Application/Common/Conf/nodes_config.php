@@ -25,16 +25,18 @@ return array(
                 'edit-编辑',
                 'delete-删除',
             ),
-            'Menus-菜单管理'=>array(
-                'menu-菜单列表',
+            'Menu-菜单管理'=>array(
+                'menus-菜单列表',
                 'add-添加',
                 'edit-编辑',
                 'delete-删除',
             ),
-            /*'Log-日志管理'=>array(
-                'logs-日志列表',
-                'delete-删除',
-            ),*/
+        ),
+        'Ling-测试模块'=>array(
+            'Test-测试'=>array(
+                'testOne-大小写测试1',
+                'test_one-大小写测试2',
+            ),
         ),
     ),
 );

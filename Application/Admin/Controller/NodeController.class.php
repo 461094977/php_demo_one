@@ -28,7 +28,7 @@ class NodeController extends BaseController{
             if($level==3){
                 list($name,$title) = explode('-',$v);
             }
-            $params['name'] = strtolower($name);
+            $params['name'] = $name;
             $params['title'] = $title;
             $params['pid'] = $pid;
             $params['level'] = $level;
