@@ -39,7 +39,7 @@ class Rbac {
                     if($controllerNodeId!=$v3['pid']){
                         continue;
                     }
-                    $actionName = $v3['name'];
+                    $actionName = strtolower($v3['name']);
                     $actionNodeId = $v3['id'];
                     $nodeListIndex[$moudelName][$controllerName][$actionName] = $actionNodeId;
                 }
