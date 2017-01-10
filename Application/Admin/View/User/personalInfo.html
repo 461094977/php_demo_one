@@ -1,0 +1,91 @@
+<extend name="./Application/Common/View/Public/base.html"/>
+<block name="extendheader">
+    <!--  .css .js  -->
+    <style type="text/css">
+        .ling-table-type-1 tr td:nth-child(1){text-align: right;vertical-align: middle; width: 200px}
+        .ling-table-type-1 tr td:nth-child(1) span{color: red;margin-left: 4px}
+        .ling-table-type-1 tr td:nth-child(2){text-align: left}
+        .ling-table-type-1 tr td:nth-child(2) div{margin: 0;padding: 0;}
+        .ling-table-type-1 tr td:nth-child(2) div div{margin: 0;padding: 0;}
+        .dropzone {padding: 0px;min-height: 100px;border-radius: 10px;float: left;width: 90%;}
+        .drop-item {cursor: pointer;margin-bottom: 10px;background-color: rgb(255, 255, 255);padding: 5px 10px;border-radisu: 3px;border: 1px solid rgb(204, 204, 204);position: relative;}
+        .drop-item .remove {position: absolute;top: 4px;right: 4px;}
+    </style>
+</block>
+
+<block name="main">
+
+    <div>
+        <h4 style="margin-left: 1%" id="edit_type_title">用户编辑</h4>
+    </div>
+    <hr style="border-top-color: black">
+
+    <div class="row">
+        <div class="col-md-8 col-lg-offset-2">
+            <table class="table table-bordered ling-table-type-1">
+                <tr>
+                    <td>姓名:</td>
+                    <td>
+                        <input class="form-control" id="fullname" value="{$info['fullname']}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>登录账号:</td>
+                    <td>
+                        <input class="form-control" name="name" value="{$info['name']}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>联系电话:</td>
+                    <td>
+                        <input class="form-control" id="mobile" value="{$info['mobile']}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>密码:</td>
+                    <td>
+                        <input class="form-control" id="password" value="{$info['password']}" type="password">
+                    </td>
+                </tr>
+                <tr>
+                    <td>角色:</td>
+                    <td>
+                        <input class="form-control" value="{$info['role_name']}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>状态:</td>
+                    <td>
+                        <input class="form-control" value="正常" readonly>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-1 col-lg-offset-5">
+            <button class="btn btn-default" onclick="edit()">修改</button>
+        </div>
+    </div>
+
+</block>
+
+<block name="extendfooter">
+    <!--（Modal） -->
+</block>
+
+<block name="extendbottom">
+    <script>
+        function edit() {
+            $.ajax({
+                url:'__CONTROLLER__/editPersonalInfo',
+                data:{fullname:$('#fullname').val(),mobile:$('#mobile').val(),password:$('#password').val()},
+                type:'post',
+                success:function (info) {
+                    console.log(info);
+                }
+            });
+        }
+    </script>
+
+</block>

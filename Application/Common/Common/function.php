@@ -4,7 +4,7 @@
 //require_once APP_PATH.'Common/Common/constant.php';
 
 /**
- * 二维数组以某列最为索引键值
+ * 二维数组以某列最为索引键值 -->array_column
  * 注意：该列不能有重复,常见model层二维数组id索引
  */
 function arrayIndex($array,$column){
@@ -15,7 +15,7 @@ function arrayIndex($array,$column){
     return $arrayIndex;
 }
 
-//获取二维数组某一列值
+//获取二维数组某一列值 -->array_column
 function get_array_column($array,$column){
     $temp = array();
     foreach($array as $v){

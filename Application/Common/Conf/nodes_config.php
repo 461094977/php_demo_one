@@ -10,6 +10,7 @@ return array(
                 'edit-编辑',
                 'delete-删除',
                 'excel-导出',
+                'editPersonalInfo-编辑个人信息',
             ),
             'Role-角色管理'=>array(
                 'roles-角色列表',

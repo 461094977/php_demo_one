@@ -1,0 +1,87 @@
+<extend name="./Application/Common/View/Public/base.html"/>
+<block name="extendheader">
+    <!--  .css .js  -->
+
+</block>
+
+<block name="main">
+
+    <div>
+        <h4 style="margin-left: 1%" id="edit_type_title">大小写测试</h4>
+    </div>
+    <hr style="border-top-color: black">
+
+    <div class="row">
+        <div class="col-md-7">
+            <table class="table table-bordered ling-table-type-1">
+                <tr>
+                    <td>ajax 调接口</td>
+                    <td>
+                        <button class="btn btn-default" onclick="test1()" autofocus>test_one</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>ajax 调接口</td>
+                    <td>
+                        <button class="btn btn-default" onclick="test2()">testOneAction</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td> U 方法  _CONTROLLER__ _SELF__</td>
+                    <td>
+                        <button>{:U('testOneAction')}</button>
+                        <button>__CONTROLLER__/testOne</button>
+                        <button>__SELF__</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td> 调用 Compub 模块</td>
+                    <td>,,,
+                        <button class="btn btn-default" onclick="test3()">test</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</block>
+
+<block name="extendfooter">
+    <!--（Modal） -->
+</block>
+
+<block name="extendbottom">
+    <script>
+        function test1() {
+            $.ajax({
+                url:'__CONTROLLER__/test_one',
+                type:'post',
+                data:{},
+                success:function (info) {
+                    console.log(info);
+                }
+            });
+        }
+        function test2() {
+            $.ajax({
+                url:'__CONTROLLER__/testOneAction',
+                type:'post',
+                data:{},
+                success:function (info) {
+                    console.log(info);
+                }
+            });
+        }
+        function test3() {
+            $.ajax({
+                url:"{:U('Compub/Common/test')}",
+                type:'post',
+                data:{},
+                success:function (info) {
+                    console.log(info);
+                }
+            });
+        }
+    </script>
+
+</block>

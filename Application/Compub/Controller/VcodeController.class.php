@@ -5,7 +5,7 @@ use Common\Util\Vcode;
 class VcodeController extends BaseController{
 
     public function _initialize(){
-        $data['isIgnoreLogin'] = true;
+        $data['isIgnoreLogin'] = ['captcha'];
         parent::_initialize($data);
     }
 

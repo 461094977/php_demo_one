@@ -5,7 +5,7 @@ use Common\Logic\BaseController;
 class UserController extends BaseController{
 
     public function _initialize(){
-        $data['isIgnoreAuth'] = ['modal_users'];
+        $data['isIgnoreAuth'] = ['modal_users','personalInfo'];
         parent::_initialize($data);
         $this->userModel = getModel('ThinkUser');
         $this->roleModel = getModel('ThinkRole');
@@ -123,5 +123,54 @@ class UserController extends BaseController{
         $params['pageSize'] = 10;
     }
 
+    public function personalInfo(){
+        $userId = $_SESSION['user']['userId'];
+        $info = $this->userModel->find($userId);
+        $info['password'] = '?default?';
+        $info['role_name'] = $_SESSION['user']['roleName'];
+        $this->assign('info',$info);
+//        $roleList = $this->roleModel->getList();
+//        $this->assign('roleList',$roleList);
+//        $this->assign('params',$params);
+//        $this->assign('ADMIN_USER_ID',ADMIN_USER_ID);
+        $this->display('');
+    }
+    public function editPersonalInfo(){  // 修改个人资料 和修改密码最好分开处理 ！！！
+        $params = I('post.');
 
+        $full_name = $params['fullname'];
+        $mobile = $params['mobile'];
+        $password = $params['password'];
+
+        $info = info();
+        if(!$full_name){
+            $info = info(1,'姓名不能为空');
+        }
+        if(!preg_match("/^[\x{4e00}-\x{9fa5}]+$/u",$full_name)){
+            $info = info(1,'姓名需为中文');
+        }
+        if(!$mobile){
+            $info = info('1','联系电话不能为空');
+        }
+        if(!preg_match("/^[0-9]{8,20}$/u",$mobile)){
+            $info = info('1','联系电话需8到20位数字');
+        }
+
+        if(mb_strlen($password,'UTF-8')<4||mb_strlen($password,'UTF-8')>12){
+            $info = info('1','密码4到12个字符');
+        }
+        if($password!='?default?'){
+            /*if(!preg_match("/^[A-Za-z0-9_]+$/u",$password)){
+                return info('1','用户名需为数字,字母,下划线');
+            }*/
+            $params['password'] = md5($password);
+        }else{
+            unset($params['password']);
+        }
+        $params['id'] = $_SESSION['user']['userId'];
+        $params['update_date'] = date('Y-m-d H:i:s',time());
+        M('think_user')->save($params);
+
+        $this->ajaxReturn($info);
+    }
 }

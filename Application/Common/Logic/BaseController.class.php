@@ -43,7 +43,7 @@ class BaseController extends Controller{
      *     isIgnoreLogin:表示忽略的登录验证
      *     isIgnoreAuth:
      */
-    public function _initialize($initParams){
+    public function _initialize($initParams = []){
         //return ;
         $this->initDefine();
         $this->initparams();
@@ -126,6 +126,7 @@ class BaseController extends Controller{
     //判断该请求是否需要验证权限权限
     private function isVerifyAuth($isIgnoreAuth){
         //忽略Compub模块权限验证
+        record(MODULE_NAME);
         if(MODULE_NAME=='Compub'){
             return false;
         }
@@ -136,9 +137,7 @@ class BaseController extends Controller{
         if(!$isIgnore){
             return true;
         }
-        if($isIgnoreLogin === true){
-            return false;
-        }
+        $isIgnore = array_flip(array_change_key_case(array_flip($isIgnore)));
         if(is_array($isIgnore)){
             if(in_array(ACTION_NAME,$isIgnore)){
                 return false;
